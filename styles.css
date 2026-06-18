@@ -244,18 +244,21 @@ a {
   margin-top: 24px;
 }
 
-.share-row a,
-.copy-link {
+.share-row a {
   width: 22px;
   height: 22px;
   color: rgba(245, 245, 247, 0.42);
 }
 
 .copy-link {
-  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 22px;
   padding: 0;
   border: 0;
   background: transparent;
+  color: rgba(245, 245, 247, 0.42);
   cursor: pointer;
 }
 
@@ -274,13 +277,17 @@ a {
   stroke-width: 2.4;
 }
 
+.copy-link svg {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+}
+
 .copy-feedback {
-  position: absolute;
-  top: 50%;
-  left: calc(100% + 9px);
-  z-index: 1;
-  padding: 2px 5px;
-  border: 1px solid rgba(245, 245, 247, 0.4);
+  max-width: 0;
+  overflow: hidden;
+  padding: 2px 0;
+  border: 0 solid rgba(245, 245, 247, 0.4);
   border-radius: 3px;
   background: rgba(29, 29, 31, 0.72);
   color: rgba(245, 245, 247, 0.88);
@@ -289,11 +296,17 @@ a {
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(-50%);
-  transition: opacity 120ms ease;
+  transition:
+    max-width 120ms ease,
+    padding 120ms ease,
+    border-width 120ms ease,
+    opacity 120ms ease;
 }
 
 .copy-link.copied .copy-feedback {
+  max-width: 56px;
+  padding: 2px 5px;
+  border-width: 1px;
   opacity: 1;
 }
 

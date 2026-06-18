@@ -27,8 +27,14 @@ body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
+  display: flex;
+  flex-direction: column;
   background: #fff;
   color: var(--text);
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 a {
@@ -131,8 +137,16 @@ a {
 }
 
 .post-preview {
-  padding: 96px 0 47px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 304px;
+  gap: 48px;
+  align-items: center;
+  padding: 74px 0 54px;
   border-bottom: 1px solid var(--line);
+}
+
+.post-copy {
+  max-width: 720px;
 }
 
 .post-preview time {
@@ -154,7 +168,7 @@ a {
 }
 
 .post-preview p {
-  max-width: 980px;
+  max-width: 760px;
   margin: 0;
   color: var(--text);
   font-size: 20px;
@@ -184,6 +198,20 @@ a {
 .post-link:focus-visible {
   outline: 3px solid rgba(0, 102, 204, 0.35);
   outline-offset: 6px;
+}
+
+.post-media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #101112;
+}
+
+.post-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .article-hero {
@@ -266,6 +294,21 @@ a {
   letter-spacing: 0;
 }
 
+.article-image {
+  width: min(100%, var(--article));
+  margin: 36px 0 36px 144px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #101112;
+}
+
+.article-image img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  object-fit: cover;
+}
+
 .article-body a {
   color: var(--blue);
   text-decoration: none;
@@ -277,6 +320,7 @@ a {
 }
 
 .site-footer {
+  flex: none;
   background: var(--footer);
   color: #6e6e73;
   font-size: 12px;
@@ -344,6 +388,8 @@ a {
   }
 
   .post-preview {
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 34px;
     padding: 54px 0 42px;
   }
 
@@ -366,6 +412,10 @@ a {
   }
 
   .article-body p {
+    margin-left: 0;
+  }
+
+  .article-image {
     margin-left: 0;
   }
 
@@ -415,7 +465,14 @@ a {
   }
 
   .post-preview {
+    grid-template-columns: 1fr;
+    gap: 24px;
     padding: 39px 0 34px;
+  }
+
+  .post-media {
+    order: -1;
+    aspect-ratio: 16 / 9;
   }
 
   .post-preview time {
@@ -478,6 +535,11 @@ a {
     margin: 0 0 21px;
     font-size: 17px;
     line-height: 1.53;
+  }
+
+  .article-image {
+    width: 100%;
+    margin: 31px 0;
   }
 
   .breadcrumb {

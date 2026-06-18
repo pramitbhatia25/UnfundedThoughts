@@ -61,6 +61,7 @@ a {
 }
 
 .chrome-inner {
+  width: min(100% - 48px, var(--article));
   height: 52px;
   display: flex;
   align-items: center;
@@ -383,6 +384,10 @@ a {
 }
 
 @media (max-width: 1180px) {
+  .chrome-inner {
+    width: min(100% - 64px, var(--article));
+  }
+
   .home-list .wide-shell {
     width: min(100% - 64px, var(--article));
   }
@@ -421,6 +426,10 @@ a {
   .footer-shell,
   .article-body {
     width: min(100% - 32px, var(--wide));
+  }
+
+  .chrome-inner {
+    width: min(100% - 32px, var(--article));
   }
 
   .nav-button {
@@ -476,6 +485,10 @@ a {
   .footer-shell,
   .article-body {
     width: min(100% - 28px, var(--wide));
+  }
+
+  .chrome-inner {
+    width: min(100% - 28px, var(--article));
   }
 
   .site-chrome,

@@ -8,6 +8,7 @@
   --hero-dark: #17181b;
   --wide: 936px;
   --article: 640px;
+  --article-offset: calc((var(--wide) - var(--article)) / 2);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
     "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -143,15 +144,16 @@ a {
 
 .post-preview time {
   display: block;
-  margin-bottom: 13px;
+  width: min(100%, var(--article));
+  margin: 0 0 13px var(--article-offset);
   color: var(--text);
   font-size: 17px;
   line-height: 1.35;
 }
 
 .post-preview h2 {
-  margin: 0 0 10px;
-  max-width: 820px;
+  width: min(100%, var(--article));
+  margin: 0 0 10px var(--article-offset);
   color: var(--text);
   font-size: 28px;
   line-height: 1.17;
@@ -160,8 +162,8 @@ a {
 }
 
 .post-preview p {
-  max-width: 760px;
-  margin: 0;
+  width: min(100%, var(--article));
+  margin: 0 0 0 var(--article-offset);
   color: var(--text);
   font-size: 20px;
   line-height: 1.42;
@@ -172,7 +174,7 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-top: 34px;
+  margin: 34px 0 0 var(--article-offset);
   color: var(--blue);
   font-size: 18px;
   line-height: 1.35;
@@ -204,7 +206,7 @@ a {
 
 .article-title-block {
   width: min(100%, var(--article));
-  margin-left: 144px;
+  margin-left: var(--article-offset);
   padding: 0;
   text-align: left;
 }
@@ -302,7 +304,7 @@ a {
 
 .article-body p {
   width: min(100%, var(--article));
-  margin: 0 0 18px 144px;
+  margin: 0 0 18px var(--article-offset);
   color: var(--text);
   font-size: 18px;
   line-height: 1.5;
@@ -311,7 +313,7 @@ a {
 
 .desire-list {
   width: min(100%, var(--article));
-  margin: 0 0 21px 144px;
+  margin: 0 0 21px var(--article-offset);
   padding: 0;
   list-style: none;
   color: var(--text);
@@ -381,11 +383,22 @@ a {
 }
 
 @media (max-width: 1180px) {
+  .home-list .wide-shell {
+    width: min(100% - 64px, var(--article));
+  }
+
   .article-hero .wide-shell {
     width: min(100% - 64px, var(--article));
   }
 
   .article-title-block {
+    margin-left: 0;
+  }
+
+  .post-preview time,
+  .post-preview h2,
+  .post-preview p,
+  .read-more {
     margin-left: 0;
   }
 

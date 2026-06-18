@@ -137,16 +137,8 @@ a {
 }
 
 .post-preview {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 304px;
-  gap: 48px;
-  align-items: center;
-  padding: 74px 0 54px;
+  padding: 96px 0 47px;
   border-bottom: 1px solid var(--line);
-}
-
-.post-copy {
-  max-width: 720px;
 }
 
 .post-preview time {
@@ -198,20 +190,6 @@ a {
 .post-link:focus-visible {
   outline: 3px solid rgba(0, 102, 204, 0.35);
   outline-offset: 6px;
-}
-
-.post-media {
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  border-radius: 8px;
-  background: #101112;
-}
-
-.post-media img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
 }
 
 .article-hero {
@@ -294,19 +272,20 @@ a {
   letter-spacing: 0;
 }
 
-.article-image {
+.desire-list {
   width: min(100%, var(--article));
-  margin: 36px 0 36px 144px;
-  overflow: hidden;
-  border-radius: 8px;
-  background: #101112;
+  margin: 0 0 21px 144px;
+  padding: 0;
+  list-style: none;
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 
-.article-image img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  display: block;
-  object-fit: cover;
+.desire-list li + li {
+  margin-top: 6px;
 }
 
 .article-body a {
@@ -364,6 +343,28 @@ a {
   color: #86868b;
 }
 
+@media (max-width: 1180px) {
+  .article-hero .wide-shell {
+    width: min(100% - 64px, var(--article));
+  }
+
+  .article-title-block {
+    margin-left: 0;
+  }
+
+  .article-body {
+    width: min(100% - 64px, var(--article));
+  }
+
+  .article-body p {
+    margin-left: 0;
+  }
+
+  .desire-list {
+    margin-left: 0;
+  }
+}
+
 @media (max-width: 920px) {
   .chrome-inner,
   .wide-shell,
@@ -388,8 +389,6 @@ a {
   }
 
   .post-preview {
-    grid-template-columns: minmax(0, 1fr) 260px;
-    gap: 34px;
     padding: 54px 0 42px;
   }
 
@@ -398,8 +397,11 @@ a {
     line-height: 1.48;
   }
 
+  .article-hero .wide-shell {
+    width: min(100% - 32px, var(--article));
+  }
+
   .article-title-block {
-    margin-left: 0;
     padding: 0;
   }
 
@@ -409,14 +411,6 @@ a {
 
   .article-body {
     width: min(100% - 32px, var(--article));
-  }
-
-  .article-body p {
-    margin-left: 0;
-  }
-
-  .article-image {
-    margin-left: 0;
   }
 
   .footer-bottom {
@@ -465,14 +459,7 @@ a {
   }
 
   .post-preview {
-    grid-template-columns: 1fr;
-    gap: 24px;
     padding: 39px 0 34px;
-  }
-
-  .post-media {
-    order: -1;
-    aspect-ratio: 16 / 9;
   }
 
   .post-preview time {
@@ -502,6 +489,10 @@ a {
       linear-gradient(90deg, rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.91)),
       url("assets/soft-field.png");
     background-position: 38% center;
+  }
+
+  .article-hero .wide-shell {
+    width: min(100% - 28px, var(--article));
   }
 
   .article-title-block time {
@@ -537,9 +528,16 @@ a {
     line-height: 1.53;
   }
 
-  .article-image {
+  .desire-list {
     width: 100%;
-    margin: 31px 0;
+    margin: 0 0 23px;
+    font-size: 17px;
+    line-height: 1.53;
+    font-weight: 400;
+  }
+
+  .desire-list li + li {
+    margin-top: 6px;
   }
 
   .breadcrumb {

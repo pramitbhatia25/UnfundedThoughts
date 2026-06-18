@@ -7,7 +7,7 @@
   --blue: #0066cc;
   --hero-dark: #17181b;
   --wide: 936px;
-  --article: 640px;
+  --article: 760px;
   --article-offset: calc((var(--wide) - var(--article)) / 2);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
     "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -220,7 +220,7 @@ a {
 }
 
 .article-title-block h1 {
-  max-width: 560px;
+  max-width: 720px;
   margin: 0;
   color: #f5f5f7;
   font-size: 48px;
@@ -230,7 +230,7 @@ a {
 }
 
 .article-credit {
-  max-width: 640px;
+  max-width: var(--article);
   margin: 15px 0 0;
   color: #f5f5f7;
   font-size: 14px;

@@ -6,11 +6,14 @@
   --footer: #f5f5f7;
   --blue: #0066cc;
   --hero-dark: #17181b;
-  --wide: 936px;
-  --article: 760px;
+  --wide: 1040px;
+  --article: 840px;
   --article-offset: calc((var(--wide) - var(--article)) / 2);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+  --font-text: "SF Pro Text", -apple-system, BlinkMacSystemFont,
     "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: "SF Pro Display", "SF Pro Text", -apple-system,
+    BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--font-text);
 }
 
 * {
@@ -30,8 +33,11 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
+  font-family: var(--font-text);
+  font-weight: 400;
   background: #fff;
   color: var(--text);
+  letter-spacing: 0;
 }
 
 main {
@@ -54,8 +60,7 @@ a {
 }
 
 .chrome-inner,
-.wide-shell,
-.footer-shell {
+.wide-shell {
   width: min(100% - 48px, var(--wide));
   margin: 0 auto;
 }
@@ -73,9 +78,10 @@ a {
   align-items: center;
   gap: 9px;
   color: #f5f5f7;
+  font-family: var(--font-display);
   font-size: 21px;
   line-height: 1;
-  font-weight: 650;
+  font-weight: 600;
   letter-spacing: 0;
   text-decoration: none;
 }
@@ -117,14 +123,43 @@ a {
   color: #1d1d1f;
 }
 
+.home-hero,
 .article-hero {
   color: #f5f5f7;
   background-color: var(--hero-dark);
   background-image:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.44), rgba(0, 0, 0, 0.91)),
-    url("assets/soft-field.png");
+    linear-gradient(90deg, rgba(0, 70, 54, 0.1), rgba(0, 0, 0, 0.8)),
+    url("assets/hero.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: left center;
+}
+
+.home-hero {
+  min-height: 355px;
+  display: flex;
+  align-items: center;
+}
+
+.home-hero h1 {
+  margin: 0;
+  color: #f5f5f7;
+  font-family: var(--font-display);
+  font-size: 70px;
+  line-height: 1.06;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.home-hero h1 span {
+  display: block;
+}
+
+.home-hero h1 span:last-child {
+  background: linear-gradient(90deg, #c9ffb5 0%, #2bded5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .home-list {
@@ -156,18 +191,19 @@ a {
   width: min(100%, var(--article));
   margin: 0 0 10px var(--article-offset);
   color: var(--text);
-  font-size: 28px;
-  line-height: 1.17;
+  font-family: var(--font-display);
+  font-size: 29px;
+  line-height: 1.16;
   letter-spacing: 0;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .post-preview p {
   width: min(100%, var(--article));
   margin: 0 0 0 var(--article-offset);
   color: var(--text);
-  font-size: 20px;
-  line-height: 1.42;
+  font-size: 21px;
+  line-height: 1.48;
   letter-spacing: 0;
 }
 
@@ -213,21 +249,31 @@ a {
 }
 
 .article-title-block time {
-  display: block;
+  display: inline-block;
   margin-bottom: 25px;
   color: #f5f5f7;
   font-size: 15px;
   line-height: 1.35;
 }
 
+.article-title-block time::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-top: 15px;
+  background: rgba(245, 245, 247, 0.55);
+}
+
 .article-title-block h1 {
-  max-width: 720px;
+  max-width: 800px;
   margin: 0;
   color: #f5f5f7;
+  font-family: var(--font-display);
   font-size: 48px;
   line-height: 1.08;
   letter-spacing: 0;
-  font-weight: 720;
+  font-weight: 600;
 }
 
 .article-credit {
@@ -318,10 +364,10 @@ a {
 
 .article-body p {
   width: min(100%, var(--article));
-  margin: 0 0 18px var(--article-offset);
+  margin: 0 0 21px var(--article-offset);
   color: var(--text);
-  font-size: 18px;
-  line-height: 1.5;
+  font-size: 19px;
+  line-height: 1.53;
   letter-spacing: 0;
 }
 
@@ -331,8 +377,8 @@ a {
   padding: 0;
   list-style: none;
   color: var(--text);
-  font-size: 18px;
-  line-height: 1.5;
+  font-size: 19px;
+  line-height: 1.53;
   font-weight: 400;
   letter-spacing: 0;
 }
@@ -360,6 +406,8 @@ a {
 }
 
 .footer-shell {
+  width: min(100% - 48px, var(--article));
+  margin: 0 auto;
   padding: 29px 0 27px;
 }
 
@@ -397,7 +445,8 @@ a {
 }
 
 @media (max-width: 1180px) {
-  .chrome-inner {
+  .chrome-inner,
+  .footer-shell {
     width: min(100% - 64px, var(--article));
   }
 
@@ -436,12 +485,12 @@ a {
 @media (max-width: 920px) {
   .chrome-inner,
   .wide-shell,
-  .footer-shell,
   .article-body {
     width: min(100% - 32px, var(--wide));
   }
 
-  .chrome-inner {
+  .chrome-inner,
+  .footer-shell {
     width: min(100% - 32px, var(--article));
   }
 
@@ -495,12 +544,12 @@ a {
 @media (max-width: 520px) {
   .chrome-inner,
   .wide-shell,
-  .footer-shell,
   .article-body {
     width: min(100% - 28px, var(--wide));
   }
 
-  .chrome-inner {
+  .chrome-inner,
+  .footer-shell {
     width: min(100% - 28px, var(--article));
   }
 
@@ -512,7 +561,7 @@ a {
   .brand {
     gap: 7px;
     font-size: 16px;
-    font-weight: 680;
+    font-weight: 600;
   }
 
   .brand-icon {
@@ -562,9 +611,24 @@ a {
   .article-hero {
     min-height: 330px;
     background-image:
-      linear-gradient(90deg, rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.91)),
-      url("assets/soft-field.png");
-    background-position: 38% center;
+      linear-gradient(90deg, rgba(0, 70, 54, 0.04), rgba(0, 0, 0, 0.78)),
+      url("assets/hero.jpg");
+    background-position: left center;
+  }
+
+  .home-hero {
+    min-height: 245px;
+    background-image:
+      linear-gradient(90deg, rgba(0, 70, 54, 0.04), rgba(0, 0, 0, 0.78)),
+      url("assets/hero.jpg");
+    background-position: left center;
+  }
+
+  .home-hero h1 {
+    font-size: 42px;
+    line-height: 1.06;
+    font-weight: 700;
+    text-align: left;
   }
 
   .article-hero .wide-shell {
@@ -576,11 +640,15 @@ a {
     font-size: 14px;
   }
 
+  .article-title-block time::after {
+    margin-top: 13px;
+  }
+
   .article-title-block h1 {
     max-width: 340px;
     font-size: 35px;
     line-height: 1.08;
-    font-weight: 760;
+    font-weight: 600;
   }
 
   .article-credit {
